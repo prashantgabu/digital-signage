@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Operating Rooms</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='{% static "main.css" %}'>
+    <script src='main.js'></script>
+</head>
+<body>
+
+<h2 class="bolder header m0-auto" style="text-align:center;">590 5<sup>th</sup> Ave Surgical Suite</h2>
+<div class="border-container">
+    <div class="table info">
+        {% for room in object_list %}
+        {% if forloop.first %}
+        <div class="table-cell title noRborder" style="outline: transparent;">
+            &nbsp;
+        </div>
+        {% endif %}
+        <div class="table-cell title noRborder" style="outline: transparent;">
+            <h3 class="bolder header m0-auto ">
+                {{room}}
+            </h3>
+        </div>
+        <div class="table-cell">
+            <p>
+                <select name="cars">
+                    <option value="{{room.doctor.name}}">
+                        {{room.doctor.name}}
+                    </option>
+                </select>
+            </p>
+        </div>
+        <div class="table-cell">
+            <p>
+                {{room.room_status.name}}
+            </p>
+        </div>
+        <div class="table-cell noRborder">
+                <textarea id="w3review" name="w3review" rows="4" cols="50">
+                {{room.room_text}}
+                </textarea>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+</body>
+</html>
