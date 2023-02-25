@@ -45,13 +45,10 @@ class ConsultRoom(BaseModel):
 
 
 class OperatingRoom(BaseModel):
-    doctor = models.ForeignKey(Doctor, on_delete=models.SET_NULL, null=True, blank=True)
-    room_status = models.ForeignKey(RoomStatus, on_delete=models.SET_NULL, null=True, blank=True)
     name = models.CharField(_("Room Name"), max_length=50)
-    text_input_1 = models.CharField(_("Room Name"), max_length=50)
-    text_input_2 = models.CharField(_("Room Name"), max_length=50)
-    text_input_3 = models.CharField(_("Room Name"), max_length=50)
-    room_text = models.TextField(_("Room Text"), default="")
+    text_input_1 = models.TextField()
+    text_input_2 = models.TextField()
+    text_input_3 = models.TextField()
 
     def __str__(self):
         return self.name

@@ -7,20 +7,6 @@
     <title>Consultation Rooms</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='{% static "main.css" %}'>
-    <style>
-        select {
-    margin: 10px;
-    font-size: 40px;
-    font-weight: 700;
-    width: auto;
-
-
-        }
-        select:focus {
-            min-width: 150px;
-            width: auto;
-        }
-    </style>
 </head>
 <body>
 
@@ -42,33 +28,35 @@
          <input type="hidden" name="hidden_{{room.id}}" value="{{room.id}}" class="hidden-form-field">
         </div>
         <div class="table-cell">
-            <p>
-                <select name="doctor-{{room.id}}" class="form-field" data-room-id={{room.id}} onchange="submitForm()">
+            <p >
+                {{room.doctor.name}}
+                {% comment %} <select name="doctor-{{room.id}}" class="form-field" data-room-id={{room.id}} onchange="submitForm()">
                     {% for doctor in doctors %}
                     <option value="{{doctor.id}}"
                             {% if room.doctor == doctor %} selected="selected" {% endif %}>
                         {{ doctor.name }}
                     </option>
                     {% endfor %}
-                </select>
+                </select> {% endcomment %}
             </p>
         </div>
         <div class="table-cell">
             <p>
-                <select name="room_status-{{room.id}}" class="form-field" data-room-id={{room.id}} onchange="submitForm()">
+                {{room.room_status.name}}
+                {% comment %} <select name="room_status-{{room.id}}" class="form-field" data-room-id={{room.id}} onchange="submitForm()">
                     {% for room_status in room_statuses %}
                     <option value="{{room_status.id}}"
                             {% if room.room_status == room_status %} selected="selected" {% endif %}>
                         {{ room_status.name }}
                     </option>
                     {% endfor %}
-                </select>
+                </select> {% endcomment %}
             </p>
         </div>
         <div class="table-cell noRborder">
-                <textarea id="room_text" name="room_text-{{room.id}}" rows="4" cols="50" class="form-field" data-room-id={{room.id}} onchange="submitForm()">
+            <p>
                 {{room.room_text}}
-                </textarea>
+            </p>
         </div>
         {% endfor %}
 
@@ -79,10 +67,6 @@
 <script type="text/javascript">
 let intervalID = window.setInterval(checkData, 5000);
     document.addEventListener("DOMContentLoaded", function() {
-
-
-
-
 });
 
 async function constructPayload(){
