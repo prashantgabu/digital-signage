@@ -27,22 +27,19 @@
         </div>
         <div class="table-cell">
             <p>
-                <select name="cars">
-                    <option value="{{room.doctor.name}}">
-                        {{room.doctor.name}}
-                    </option>
-                </select>
+                {{room.text_input_1}}
             </p>
         </div>
         <div class="table-cell">
             <p>
-                {{room.room_status.name}}
+                {{room.text_input_2}}
             </p>
         </div>
         <div class="table-cell noRborder">
-                <textarea id="w3review" name="w3review" rows="4" cols="50">
-                {{room.room_text}}
-                </textarea>
+            <p>
+                {{room.text_input_2}}
+
+            </p>
         </div>
         {% endfor %}
 
