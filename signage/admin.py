@@ -66,4 +66,4 @@ class OperatingRoomAdmin(admin.ModelAdmin):
         super().save_model(request, obj, form, change)
 
 
-admin.site.register(DataTracker)
+# admin.site.register(DataTracker)
