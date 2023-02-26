@@ -145,13 +145,6 @@ JAZZMIN_SETTINGS = {
     "navigation_expanded": True,
     "icons": {
     },
-    # "custom_links": {
-    #     "signage": [{
-    #         "name": "Make Messages",
-    #         "url": "admin:consulting-room-redirect",
-    #         "icon": "fas fa-comments",
-    #     }]
-    # },
 
     "default_icon_parents": "fas fa-chevron-circle-right",
     "default_icon_children": "fas fa-circle",
