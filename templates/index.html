@@ -30,27 +30,11 @@
         <div class="table-cell">
             <p >
                 {{room.doctor.name}}
-                {% comment %} <select name="doctor-{{room.id}}" class="form-field" data-room-id={{room.id}} onchange="submitForm()">
-                    {% for doctor in doctors %}
-                    <option value="{{doctor.id}}"
-                            {% if room.doctor == doctor %} selected="selected" {% endif %}>
-                        {{ doctor.name }}
-                    </option>
-                    {% endfor %}
-                </select> {% endcomment %}
             </p>
         </div>
         <div class="table-cell">
             <p>
                 {{room.room_status.name}}
-                {% comment %} <select name="room_status-{{room.id}}" class="form-field" data-room-id={{room.id}} onchange="submitForm()">
-                    {% for room_status in room_statuses %}
-                    <option value="{{room_status.id}}"
-                            {% if room.room_status == room_status %} selected="selected" {% endif %}>
-                        {{ room_status.name }}
-                    </option>
-                    {% endfor %}
-                </select> {% endcomment %}
             </p>
         </div>
         <div class="table-cell noRborder">
@@ -68,46 +52,6 @@
 let intervalID = window.setInterval(checkData, 5000);
     document.addEventListener("DOMContentLoaded", function() {
 });
-
-async function constructPayload(){
-    let payload = {}
-    
-let hiddenFields = document.querySelectorAll("[class=hidden-form-field]")
-for (i = 0; i < hiddenFields.length; ++i) {
-    payload[hiddenFields[i].value] = {}
-}
-
-
-
-for (const key in payload) {
-
-    let roomId = `[data-room-id="${key}"]`;
-let fields =document.querySelectorAll(roomId);
-    for (i = 0; i < fields.length; ++i) {
-        let fieldParts = fields[i].name.split("-");
-        let keyName = fieldParts[0];
-        let fieldValue = fields[i].value;
-        payload[key][keyName] =  fieldValue;
-    }
-}
-console.log(payload)
-return payload;
-
-
-
-}
-async function submitForm(){
-    payload = await constructPayload();
-    const response = await fetch('http://localhost:8000/save-data/', {
-        method: 'POST',
-        body: JSON.stringify(payload)  , 
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-      const jsonResponse = await response.json(); 
-      console.log(jsonResponse);
-  }
 async function checkData(){
     const response = await fetch(`http://localhost:8000/save-data/?key=has_consulting_rooms_changed`, {
         method: 'GET',

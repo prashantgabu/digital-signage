@@ -38,7 +38,6 @@
         <div class="table-cell noRborder">
             <p>
                 {{room.text_input_2}}
-
             </p>
         </div>
         {% endfor %}
@@ -46,4 +45,22 @@
     </div>
 </div>
 </body>
+<script type="text/javascript">
+let intervalID = window.setInterval(checkData, 5000);
+    document.addEventListener("DOMContentLoaded", function() {
+});
+async function checkData(){
+    const response = await fetch(`http://localhost:8000/save-data/?key=has_operating_rooms_changed`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      const jsonResponse = await response.json();
+      if(jsonResponse.data_changed) {
+        location.reload();
+      }
+  }
+
+</script>
 </html>
