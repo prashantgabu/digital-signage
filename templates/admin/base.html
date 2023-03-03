@@ -49,6 +49,17 @@
 
     {% block extrastyle %} {% endblock %}
     {% block extrahead %} {% endblock %}
+    <style>
+        .height-ul {
+            height: 750px;
+            display: flex;
+            flex-direction: column;
+          }
+          
+          .height-ul > :last-child {
+            margin-top: auto;
+          }
+    </style>
 </head>
 <body class="hold-transition{% if not jazzmin_settings.show_sidebar %} no-sidebar{% else %} sidebar-mini{% endif %} {% sidebar_status request %} {% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %} {{ jazzmin_ui.body_classes }}" data-admin-utc-offset="{% now "Z" %}">
 
@@ -205,7 +216,7 @@
                     </div>
 
                     <nav class="mt-2">
-                        <ul class="nav nav-pills nav-sidebar flex-column {{ jazzmin_ui.sidebar_list_classes }}" data-widget="treeview" role="menu" data-collapsible="false">
+                        <ul class="nav nav-pills nav-sidebar flex-column height-ul {{ jazzmin_ui.sidebar_list_classes }}" data-widget="treeview" role="menu" data-collapsible="false">
 
                             <li class="nav-item">
                                 <a href="{% url 'admin:index' %}" class="nav-link">
@@ -213,12 +224,7 @@
                                     <p>{% trans 'Dashboard' %}</p>
                                 </a>
                             </li>
-                          <li class="nav-item">
-                                <a href="{% url 'signage:consultation-room-list' %}" class="nav-link">
-                                    <i class="nav-icon fas fa-phone"></i>
-                                    <p>{% trans 'Customer Service' %}</p>
-                                </a>
-                            </li>
+
 
                             {% if jazzmin_settings.navigation_expanded %}
                                 {% for app in side_menu_list %}
@@ -257,7 +263,20 @@
                                     </li>
                                 {% endfor %}
                             {% endif %}
+
+                            <li class="nav-item">
+                                <a href="{% url 'signage:consultation-room-list' %}" class="nav-link" style="pointer-events: none">
+                                    <i class="nav-icon fas fa-fw"></i>
+                                    <p>212-255-8796</p>
+                                </a>
+                                <a href="{% url 'signage:consultation-room-list' %}" class="nav-link">
+                                    <i class="nav-icon fas fa-phone-volume"></i>
+                                    <p>{% trans 'Customer Service' %}</p>
+                                </a>
+                            </li>
                         </ul>
+
+
                     </nav>
                 </div>
             </aside>

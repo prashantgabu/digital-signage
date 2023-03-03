@@ -8,10 +8,20 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='{% static "main.css" %}'>
     <script src='main.js'></script>
+    <style>
+@font-face {
+    font-family: TrajanProRegularFont;
+    src: url(static/TrajanProRegular.ttf);
+}
+
+body {
+    font-family: TrajanProRegularFont;
+}
+</style>
 </head>
 <body>
 
-<h2 class="bolder header m0-auto" style="text-align:center;">590 5<sup>th</sup> Ave Surgical Suite</h2>
+<h2 class="bolder header m0-auto" style="text-align:center;">590 5<sup>th</sup> Ave Surgical Suites</h2>
 <div class="border-container">
     <div class="table info">
         {% for room in object_list %}
