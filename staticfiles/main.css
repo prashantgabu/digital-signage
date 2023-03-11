@@ -12,7 +12,7 @@ body {
     flex-wrap: wrap;
     margin: 0 auto;
     padding: 0;
-    max-width: 940px;
+    max-width: 990px;
     max-height: 1920px;
     margin-bottom: 50px;
     border-radius: 10px;
@@ -31,7 +31,7 @@ body {
   .bolder{font-weight: bolder;}
   h2.header {
     position: relative;
-    max-width: 900px;
+    max-width: 940px;
     border-radius: 10px;
     padding: 10px 0px;
     background: #fff;
@@ -52,7 +52,7 @@ body {
   .border-container{
     margin: 0 auto;
     /* padding: 5px; */
-    max-width: 940px;
+    max-width: 990px;
     max-height: 1920px;
     margin-top: -60px;
     border: 2px solid #000;
