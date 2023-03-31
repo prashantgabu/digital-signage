@@ -13,7 +13,7 @@
     src: url(static/TrajanProRegular.ttf);
 }
 body {
-    font-family: Arial;
+    font-family: TrajanProRegularFont;
 }
 
 .trajan-font {
@@ -23,16 +23,11 @@ body {
 </head>
 <body>
 
-<h2 class="bolder header m0-auto trajan-font" style="text-align:center;">590 Fifth Ave Office Suites</h2>
 <div class="border-container">
+    <h2 class="bolder header m0-auto" style="text-align:center;">590 Fifth Ave Office Suites</h2>
     <form action="" method="post"  name="consultation-form">
     <div class="table info">
         {% for room in object_list %}
-        {% if forloop.first %}
-        <div class="table-cell title noRborder" style="outline: transparent;">
-            &nbsp;
-        </div>
-        {% endif %}
 
         <div class="table-cell title noRborder" style="outline: transparent;">
             <h3 class="bolder header m0-auto ">
