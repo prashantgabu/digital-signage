@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from signage.models import Doctor, RoomStatus, OperatingRoom, ConsultRoom, DataTracker, PhoneNumber
+from signage.models import Doctor, RoomStatus, OperatingRoom, ConsultRoom, DataTracker
 
 
 @admin.register(Doctor)
@@ -45,11 +45,3 @@ class OperatingRoomAdmin(admin.ModelAdmin):
         data_tracker, _ = DataTracker.objects.update_or_create(
             defaults={"has_operating_rooms_changed": True})
         super().save_model(request, obj, form, change)
-
-
-@admin.register(PhoneNumber)
-class PhoneNumberAdmin(admin.ModelAdmin):
-    list_display = ['phone_number']
-    search_fields = ['phone_number']
-
-# admin.site.register(DataTracker)

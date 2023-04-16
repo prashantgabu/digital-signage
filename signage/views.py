@@ -19,6 +19,7 @@ class ConsultationRoomListView(ConsultationRoomBaseView, ListView):
         context = super(ConsultationRoomListView, self).get_context_data(**kwargs)
         context['doctors'] = Doctor.objects.all()
         context['room_statuses'] = RoomStatus.objects.all()
+        context['operating_rooms'] = OperatingRoom.objects.all()
         return context
 
 

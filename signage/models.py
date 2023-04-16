@@ -45,20 +45,6 @@ class ConsultRoom(BaseModel):
         verbose_name_plural = _("Consultation Rooms")
 
 
-class PhoneNumber(BaseModel):
-    phone_number = models.IntegerField()
-
-    def __str__(self):
-        return str(self.phone_number)
-
-    class Meta:
-        verbose_name_plural = verbose_name = _("Phone Number")
-
-    def clean(self):
-        if not self.pk and PhoneNumber.objects.exists():
-            raise ValidationError('There can be only one Phone Number in the system')
-
-
 class OperatingRoom(BaseModel):
     name = models.CharField(_("Room Name"), max_length=50)
     text_input_1 = models.TextField()

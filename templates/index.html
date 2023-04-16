@@ -24,8 +24,7 @@ body {
 <body>
 
 <div class="border-container">
-    <h2 class="bolder header m0-auto" style="text-align:center;">590 Fifth Ave Office Suites</h2>
-    <form action="" method="post"  name="consultation-form">
+    <h2 class="bolder header m0-auto" style="text-align:center;">590 Fifth Avenue Office Suites</h2>
     <div class="table info">
         {% for room in object_list %}
 
@@ -53,7 +52,35 @@ body {
         {% endfor %}
 
     </div>
-    </form>
+</div>
+
+<h2 class="bolder header m0-auto" style="text-align:center;">590 Fifth Avenue Surgical Suites</h2>
+<div class="border-container">
+    <div class="table info">
+        {% for room in operating_rooms %}
+        <div class="table-cell title noRborder" style="outline: transparent;">
+            <h3 class="bolder header m0-auto ">
+                {{room}}
+            </h3>
+        </div>
+        <div class="table-cell">
+            <p>
+                {{room.text_input_1}}
+            </p>
+        </div>
+        <div class="table-cell">
+            <p>
+                {{room.text_input_2}}
+            </p>
+        </div>
+        <div class="table-cell noRborder">
+            <p>
+                {{room.text_input_2}}
+            </p>
+        </div>
+        {% endfor %}
+
+    </div>
 </div>
 </body>
 <script type="text/javascript">

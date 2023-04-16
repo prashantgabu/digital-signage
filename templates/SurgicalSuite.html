@@ -25,7 +25,7 @@ body {
 </head>
 <body>
 
-<h2 class="bolder header m0-auto" style="text-align:center;">590 Fifth Ave Surgical Suites</h2>
+<h2 class="bolder header m0-auto" style="text-align:center;">590 Fifth Avenue Surgical Suites</h2>
 <div class="border-container">
     <div class="table info">
         {% for room in object_list %}
@@ -59,7 +59,7 @@ let intervalID = window.setInterval(checkData, 5000);
     document.addEventListener("DOMContentLoaded", function() {
 });
 async function checkData(){
-    const response = await fetch(`http://localhost:8000/save-data/?key=has_operating_rooms_changed`, {
+    const response = await fetch(`http://localhost:8000/save-data/?key=has_consulting_rooms_changed`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
