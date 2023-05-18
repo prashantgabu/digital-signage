@@ -10,7 +10,7 @@ class DoctorAdmin(admin.ModelAdmin):
 
     def save_model(self, request, obj, form, change):
         data_tracker, _ = DataTracker.objects.update_or_create(
-            defaults={"has_consulting_rooms_changed": True, "has_operating_rooms_changed": True})
+            defaults={"has_consulting_rooms_changed": True})
         super().save_model(request, obj, form, change)
 
 
@@ -21,7 +21,7 @@ class RoomStatusAdmin(admin.ModelAdmin):
 
     def save_model(self, request, obj, form, change):
         data_tracker, _ = DataTracker.objects.update_or_create(
-            defaults={"has_consulting_rooms_changed": True, "has_operating_rooms_changed": True})
+            defaults={"has_consulting_rooms_changed": True})
         super().save_model(request, obj, form, change)
 
 
